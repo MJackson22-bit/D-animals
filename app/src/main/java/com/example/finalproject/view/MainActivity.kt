@@ -7,7 +7,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.finalproject.R
-import com.example.finalproject.databinding.ActivityAddBinding
 import com.example.finalproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
