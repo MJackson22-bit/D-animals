@@ -10,4 +10,11 @@
     <string name="pollos">#POLLOS</string>
     <string name="vaca">#VACA</string>
     <string name="inicio">Inicio</string>
+    <string name="perfil">Perfil</string>
+    <string name="favorito">Favorito</string>
+    <string name="buscar">Buscar</string>
+    <string name="agregar">Agregar</string>
+    <string name="lista_de_animales">Lista de animales</string>
+    <string name="buscar_animales">Buscar animales</string>
+    <string name="perfil_animal">Perfil animal</string>
 </resources>

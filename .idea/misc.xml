@@ -5,8 +5,12 @@
       <map>
         <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/drawable/ripple_drawable.xml" value="0.258" />
         <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/drawable/shape.xml" value="0.258" />
-        <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/activity_main.xml" value="0.14" />
+        <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/fragment_list_profile.xml" value="0.25135135135135134" />
         <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/fragment_lista_profile.xml" value="0.1" />
+        <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/fragment_profile.xml" value="0.25135135135135134" />
+        <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/layout/fragment_search.xml" value="0.25135135135135134" />
         <entry key="..\:/Users/Jackson/StudioProjects/D-animals/app/src/main/res/menu/bottom_navigation.xml" value="0.34444444444444444" />
         <entry key="..\:/Users/Jackson/StudioProjects/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
       </map>
