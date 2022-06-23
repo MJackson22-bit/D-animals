@@ -2,4 +2,12 @@
     <string name="app_name">FinalProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="seleccione_una_mascota">Seleccione una mascota</string>
+    <string name="perro">#PERRO</string>
+    <string name="gato">#GATO</string>
+    <string name="cerdo">#CERDO</string>
+    <string name="mono">#MONO</string>
+    <string name="pollos">#POLLOS</string>
+    <string name="vaca">#VACA</string>
+    <string name="inicio">Inicio</string>
 </resources>
