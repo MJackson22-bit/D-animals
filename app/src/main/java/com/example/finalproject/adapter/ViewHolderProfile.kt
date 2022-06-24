@@ -1,10 +1,12 @@
 package com.example.finalproject.adapter
 
+import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.databinding.ItemProfileBinding
@@ -18,6 +20,9 @@ class ViewHolderProfile(view: View) : RecyclerView.ViewHolder(view),  PopupMenu.
         itemView.setOnClickListener {
             onClickListener(item)
         }
+        binding.ivPhoto.setOnClickListener{
+
+        }
         binding.ivOpenMenu.setOnClickListener {
             PopupMenu(binding.ivOpenMenu.context, it).apply {
                 setOnMenuItemClickListener(this@ViewHolderProfile)
@@ -26,11 +31,10 @@ class ViewHolderProfile(view: View) : RecyclerView.ViewHolder(view),  PopupMenu.
             }
         }
     }
-
     override fun onMenuItemClick(menuItem: MenuItem?): Boolean {
         return when(menuItem?.itemId){
             R.id.menuCompartir -> {
-                Toast.makeText(binding.ivOpenMenu.context, "Compartir", Toast.LENGTH_SHORT).show()
+                share()
                 true
             }
             R.id.menuEditar -> {
@@ -43,5 +47,14 @@ class ViewHolderProfile(view: View) : RecyclerView.ViewHolder(view),  PopupMenu.
             }
             else -> false
         }
+    }
+
+    private fun share() {
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+        }
+        val shareIntent =   Intent.createChooser(intent, null)
+        startActivity(binding.ivOpenMenu.context, shareIntent, null)
     }
 }

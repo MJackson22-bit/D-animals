@@ -1,11 +1,18 @@
 package com.example.finalproject.fragment
 
 import android.os.Bundle
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
+import com.example.finalproject.adapter.SearchAdapter
+import com.example.finalproject.databinding.FragmentSearchBinding
+import com.example.finalproject.model.Animal
+import com.example.finalproject.provider.ProviderProfile
+import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +28,11 @@ class SearchFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentSearchBinding? = null
+    private val binding get() = _binding!!
+    var displayList = ArrayList<Animal>()
+    var layoutManager: RecyclerView.LayoutManager? = null
+    var adapter: SearchAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,9 +45,48 @@ class SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
+    ): View {
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        displayList.addAll(ProviderProfile.listProfile)
+        initRecycler()
+        search()
+    }
+
+    private fun search() {
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText!!.isNotEmpty()) {
+                    displayList.clear()
+                    val search = newText.lowercase(Locale.getDefault())
+                    ProviderProfile.listProfile.forEach { item ->
+                        if (item.name.lowercase(Locale.getDefault()).contains(search)) {
+                            displayList.add(item)
+                        }
+                    }
+                    adapter?.notifyDataSetChanged()
+                }else{
+                    displayList.clear()
+                    displayList.addAll(ProviderProfile.listProfile)
+                    adapter?.notifyDataSetChanged()
+                }
+                return true
+            }
+        })
+    }
+
+    private fun initRecycler() {
+        layoutManager = LinearLayoutManager(context)
+        adapter = SearchAdapter(displayList)
+        binding.recycler.layoutManager = layoutManager
+        binding.recycler.adapter = adapter
     }
 
     companion object {
