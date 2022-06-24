@@ -52,7 +52,7 @@
             android:id="@+id/tvRaz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edad_humana"
+            android:text="@string/raza"
             android:layout_marginTop="20dp"
             android:textColor="#23759A"
             android:fontFamily="@font/roboto_bold"

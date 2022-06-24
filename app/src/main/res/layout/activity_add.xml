@@ -44,12 +44,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/agregar"
         app:layout_constraintTop_toTopOf="@id/gl1"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_percent="0.13"
-        android:orientation="horizontal"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13002364" />
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

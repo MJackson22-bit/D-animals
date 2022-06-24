@@ -26,6 +26,7 @@
     <string name="te_damos_la_bienvenida">Te damos la bienvenida</string>
     <string name="establezca_los_valores_seg_n_corresponda">Establezca los valores según corresponda</string>
     <string name="edad_humana">Edad Humana</string>
+    <string name="raza">Raza</string>
 
     <string-array name="raza">
         <item>Pitbull</item>
