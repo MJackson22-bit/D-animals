@@ -27,6 +27,9 @@
     <string name="establezca_los_valores_seg_n_corresponda">Establezca los valores según corresponda</string>
     <string name="edad_humana">Edad Humana</string>
     <string name="raza">Raza</string>
+    <string name="editar">Editar</string>
+    <string name="compartir">Compartir</string>
+    <string name="eliminar">Eliminar</string>
 
     <string-array name="raza">
         <item>Pitbull</item>

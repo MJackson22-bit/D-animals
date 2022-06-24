@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.finalproject.GeneralInfoFragment
-import com.example.finalproject.ValuesFragment
+import com.example.finalproject.fragment.GeneralInfoFragment
+import com.example.finalproject.fragment.ValuesFragment
 
 class ViewPagerAdapter(supportFragmentManager: FragmentManager, lifecycle: Lifecycle): FragmentStateAdapter(supportFragmentManager, lifecycle) {
     override fun getItemCount(): Int {
