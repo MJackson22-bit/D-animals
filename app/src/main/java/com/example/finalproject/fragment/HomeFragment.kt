@@ -6,7 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.finalproject.databinding.FragmentHomeBinding
+import com.example.finalproject.model.Animal
+import com.example.finalproject.provider.ProviderProfile
+import com.example.finalproject.provider.ProviderValuesFirst
+import com.example.finalproject.provider.ProviderValuesSecond
 import com.example.finalproject.view.AddActivity
 
 // TODO: Rename parameter arguments, choose names that match
@@ -45,6 +50,18 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAdd.setOnClickListener {
             startActivity(Intent(context, AddActivity::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if(ProviderValuesFirst.listValuesFirst.isNotEmpty() && ProviderValuesSecond.listValuesSecond.isNotEmpty()){
+            val valueFirst = ProviderValuesFirst.listValuesFirst[0]
+            val valueSecond = ProviderValuesSecond.listValuesSecond[0]
+            val animal = Animal(valueFirst.name, valueFirst.description, valueSecond.age, valueSecond.race)
+            ProviderProfile.listProfile.add(animal)
+            ProviderValuesFirst.listValuesFirst.clear()
+            ProviderValuesSecond.listValuesSecond.clear()
         }
     }
 

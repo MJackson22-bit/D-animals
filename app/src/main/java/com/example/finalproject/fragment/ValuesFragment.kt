@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.finalproject.R
 import com.example.finalproject.databinding.FragmentValuesBinding
+import com.example.finalproject.model.ValueFirst
+import com.example.finalproject.model.ValueSecond
+import com.example.finalproject.provider.ProviderValuesSecond
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +28,8 @@ class ValuesFragment : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentValuesBinding? = null
     private val binding get() = _binding!!
+    private var valuesSecond: ValueSecond? = null
+    private var races: List<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +54,21 @@ class ValuesFragment : Fragment() {
         binding.npAge.minValue = 1
         binding.npRaz.minValue = 0
         binding.npRaz.maxValue = 9
-        binding.npRaz.displayedValues = resources.getStringArray(R.array.raza)
+        races = resources.getStringArray(R.array.raza).toList()
+        binding.npRaz.displayedValues = races.toTypedArray()
     }
+
+    override fun onPause() {
+        super.onPause()
+        valuesSecond = ValueSecond(binding.npAge.value, races[binding.npRaz.value])
+        ProviderValuesSecond.listValuesSecond.clear()
+        ProviderValuesSecond.listValuesSecond.add(valuesSecond!!)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
 
     companion object {
         /**

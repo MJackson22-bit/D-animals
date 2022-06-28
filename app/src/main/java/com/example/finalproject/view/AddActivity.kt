@@ -10,6 +10,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.finalproject.R
 import com.example.finalproject.adapter.ViewPagerAdapter
 import com.example.finalproject.databinding.ActivityAddBinding
+import com.example.finalproject.model.Animal
+import com.example.finalproject.model.ValueFirst
+import com.example.finalproject.provider.ProviderProfile
+import com.example.finalproject.provider.ProviderValuesFirst
+import com.example.finalproject.provider.ProviderValuesSecond
 
 class AddActivity : AppCompatActivity() {
     lateinit var binding: ActivityAddBinding
@@ -28,7 +33,10 @@ class AddActivity : AppCompatActivity() {
                     fakeDragBy(-10f)
                     endFakeDrag()
                 }
-                binding.btnNext.text = "Atrás"
+                binding.btnNext.text = "Guardar"
+                it.setOnClickListener {
+                    onBackPressed()
+                }
                 false
             } else {
                 binding.viewPager.apply {
@@ -54,11 +62,13 @@ class AddActivity : AppCompatActivity() {
                     binding.btnNext.text = "Siguiente"
                     fake = true
                 } else if (position == 1) {
-                    binding.btnNext.text = "Atrás"
+                    binding.btnNext.text = "Guardar"
+                    binding.btnNext.setOnClickListener {
+                        onBackPressed()
+                    }
                     fake = false
                 }
             }
         })
     }
-
 }
