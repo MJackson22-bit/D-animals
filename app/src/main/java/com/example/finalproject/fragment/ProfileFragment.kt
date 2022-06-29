@@ -57,7 +57,6 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecycler()
     }
-
     private fun initRecycler() {
         val recycler = binding.recyclerProfile
         recycler.layoutManager = LinearLayoutManager(context)
