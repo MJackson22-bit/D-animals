@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.findNavController
 import com.example.finalproject.R
+import com.example.finalproject.databinding.FragmentListProfileBinding
+import com.example.finalproject.provider.ProviderPosition
+import com.example.finalproject.provider.ProviderProfile
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +26,9 @@ class ListProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentListProfileBinding? = null
+    private val binding get() = _binding!!
+    var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,15 +36,31 @@ class ListProfileFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        position = if(arguments != null){
+            arguments?.getInt("position", 0)!!
+        }else{
+            ProviderPosition.position!!
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_profile, container, false)
+    ): View {
+        _binding = FragmentListProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val animal = ProviderProfile.listProfile[position]
+        binding.ivPhoto.bringToFront()
+        binding.tvName.text = animal.name
+        binding.tvRace.text = animal.race
+        binding.ivPhoto.setImageResource(R.drawable.dog)
+        binding.tvDescription.text = animal.description
+    }
+
 
     companion object {
         /**

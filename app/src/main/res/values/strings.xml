@@ -30,6 +30,23 @@
     <string name="editar">Editar</string>
     <string name="compartir">Compartir</string>
     <string name="eliminar">Eliminar</string>
+    <string name="a_os">Años</string>
+    <string name="meses">Meses</string>
+    <string name="_10">10</string>
+    <string name="d_as">Días</string>
+    <string name="descripci_n">Descripción</string>
+    <string name="informaci_n">Información</string>
+    <string name="agrupaci_n">Agrupación</string>
+    <string name="mam_feros">Mamíferos</string>
+    <string name="clasicaci_n">Clasificación</string>
+    <string name="vertebrado">Vertebrado</string>
+    <string name="gestaci_n">Gestación</string>
+    <string name="_58_68_d_as">58 - 68 Días</string>
+    <string name="_21">21</string>
+    <string name="cr_as_promedio">Crías Promedio</string>
+    <string name="_6_cr_as">6 Crías</string>
+    <string name="_12_a_os">12 años</string>
+    <string name="vida_promedio">Vida Promedio</string>
 
     <string-array name="raza">
         <item>Pitbull</item>

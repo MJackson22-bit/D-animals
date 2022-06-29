@@ -11,17 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.databinding.ItemProfileBinding
 import com.example.finalproject.model.Animal
+import java.text.FieldPosition
 
 class ViewHolderProfile(view: View) : RecyclerView.ViewHolder(view),  PopupMenu.OnMenuItemClickListener {
     private val binding = ItemProfileBinding.bind(view)
-    fun render(item: Animal, onClickListener: (Animal) -> Unit){
+    fun render(item: Animal, onClickListener: (Int) -> Unit, position: Int){
         binding.tvName.text = item.name
         binding.tvRace.text = item.race
         itemView.setOnClickListener {
-            onClickListener(item)
-        }
-        binding.ivPhoto.setOnClickListener{
-
+            onClickListener(position)
         }
         binding.ivOpenMenu.setOnClickListener {
             PopupMenu(binding.ivOpenMenu.context, it).apply {

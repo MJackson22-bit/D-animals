@@ -1,5 +1,6 @@
 package com.example.finalproject.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finalproject.R
 import com.example.finalproject.adapter.ProfileAdapter
 import com.example.finalproject.databinding.FragmentProfileBinding
 
 import com.example.finalproject.model.Animal
+import com.example.finalproject.provider.ProviderPosition
 import com.example.finalproject.provider.ProviderProfile
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,6 +35,7 @@ class ProfileFragment : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+    private val descriptionFragment = DescriptionFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,8 +66,19 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun onItemSelected(it: Animal) {
-        Toast.makeText(context, "Pressed", Toast.LENGTH_SHORT).show()
+    private fun onItemSelected(it: Int) {
+        val bundle = Bundle()
+        bundle.putInt("position", it)
+        descriptionFragment.arguments = bundle
+        val fragmentManager =  parentFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.fragment_container, descriptionFragment, null)
+        fragmentTransaction.commit()
+        ProviderPosition.position = it
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     companion object {
